@@ -14,10 +14,12 @@
   --accent-2: #7c6bff;
   --accent-cool: #4de2ff;
   --void: #000000;
-  --glass: rgba(140, 200, 255, 0.04);
-  --glass-strong: rgba(140, 200, 255, 0.07);
-  --glass-border: rgba(160, 210, 255, 0.12);
-  --glass-shine: rgba(210, 235, 255, 0.16);
+  /* solid frosted base — works without backdrop-filter (mobile Safari/Chrome) */
+  --glass: linear-gradient(165deg, rgba(28, 40, 68, 0.92), rgba(8, 14, 28, 0.88));
+  --glass-strong: linear-gradient(165deg, rgba(32, 46, 78, 0.95), rgba(10, 16, 32, 0.92));
+  --glass-flat: rgba(12, 18, 36, 0.9);
+  --glass-border: rgba(160, 210, 255, 0.18);
+  --glass-shine: rgba(210, 235, 255, 0.22);
   --line: rgba(150, 200, 255, 0.08);
   --nebula-a: rgba(30, 100, 180, 0.16);
   --nebula-b: rgba(70, 40, 160, 0.18);
@@ -116,17 +118,27 @@ button {
 
 .glass {
   background: var(--glass);
-  backdrop-filter: blur(18px) saturate(1.35);
-  -webkit-backdrop-filter: blur(18px) saturate(1.35);
   border: 1px solid var(--glass-border);
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.28),
+    0 10px 40px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 var(--glass-shine);
   transition:
     background-color 0.7s ease,
     border-color 0.7s ease,
     box-shadow 0.3s ease,
     transform 0.25s ease;
+}
+
+/* blur only as enhancement on desktop pointers — mobile often ignores it */
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  @media (hover: hover) and (pointer: fine) {
+    .glass {
+      /* keep mostly opaque — blur is bonus; transform ancestors often kill it */
+      background: linear-gradient(165deg, rgba(28, 40, 68, 0.82), rgba(8, 14, 28, 0.76));
+      backdrop-filter: blur(18px) saturate(1.35);
+      -webkit-backdrop-filter: blur(18px) saturate(1.35);
+    }
+  }
 }
 
 .glass:hover {
@@ -164,8 +176,17 @@ button {
 
 .btn-ghost {
   border: 1px solid var(--glass-border);
-  background: var(--glass);
-  backdrop-filter: blur(12px);
+  background: var(--glass-flat);
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  @media (hover: hover) and (pointer: fine) {
+    .btn-ghost {
+      background: rgba(12, 18, 36, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  }
 }
 
 @keyframes caret-blink {

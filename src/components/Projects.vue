@@ -9,15 +9,24 @@ defineEmits<{
 </script>
 
 <template>
-    <section id="projects" class="section page" aria-labelledby="projects-title">
-    <p class="kicker">03 — Projects</p>
-    <h2 id="projects-title" class="section-title">Проекты</h2>
-    <p class="lead">
-      Четыре работы — клик открывает подробности. Живые демо также на
-      <a href="https://projects.phptrash.ru" class="hub-link" target="_blank" rel="noopener noreferrer"
-        >projects.phptrash.ru</a
-      >.
-    </p>
+  <section id="projects" class="section page" aria-labelledby="projects-title">
+    <header class="intro">
+      <div class="intro-copy">
+        <p class="kicker">03 — Projects</p>
+        <h2 id="projects-title" class="section-title">Проекты</h2>
+        <p class="lead">Избранные работы — открой карточку, чтобы узнать больше.</p>
+      </div>
+      <a
+        href="https://projects.phptrash.ru"
+        class="hub-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="/favicon.svg" alt="" width="22" height="22" class="hub-logo" />
+        <span>Projects Hub</span>
+        <FontAwesomeIcon :icon="['fas', 'arrow-up-right-from-square']" />
+      </a>
+    </header>
 
     <div class="grid">
       <button
@@ -57,10 +66,61 @@ defineEmits<{
   z-index: 1;
 }
 
-.hub-link {
+.intro {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  align-items: end;
+}
+
+.intro-copy .section-title {
+  margin-bottom: 0.55rem;
+}
+
+.intro-copy .lead {
+  margin: 0;
+  max-width: 28rem;
+}
+
+.hub-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  min-height: 2.55rem;
+  padding: 0.4rem 0.95rem 0.4rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.hub-logo {
+  display: block;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 0.4rem;
+  flex-shrink: 0;
+}
+
+.hub-cta :deep(svg) {
   color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.hub-cta:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--glass-border));
+  background: rgba(77, 226, 255, 0.08);
 }
 
 .grid {
@@ -134,9 +194,15 @@ p {
   border-radius: 999px;
   border: 1px solid var(--line);
   color: var(--muted);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 780px) {
+  .intro {
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+  }
+
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
