@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="500" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12101f"/>
+      <stop offset="1" stop-color="#2a1f45"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <circle cx="280" cy="250" r="110" fill="#7a6cff" fill-opacity="0.25"/>
+  <circle cx="470" cy="250" r="110" fill="#5ec8ff" fill-opacity="0.22"/>
+  <path d="M340 190h120v120H340z" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.2"/>
+  <text x="120" y="80" fill="#e8eefc" font-family="Segoe UI, sans-serif" font-size="34" font-weight="700">ImageConvertor</text>
+</svg>

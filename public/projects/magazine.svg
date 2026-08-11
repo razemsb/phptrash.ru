@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10141f"/>
+      <stop offset="1" stop-color="#1e2a3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <rect x="90" y="130" width="620" height="280" rx="22" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.14"/>
+  <rect x="120" y="160" width="250" height="220" rx="16" fill="#5ec8ff" fill-opacity="0.14"/>
+  <rect x="400" y="160" width="280" height="60" rx="12" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="400" y="240" width="280" height="140" rx="12" fill="#ffffff" fill-opacity="0.05"/>
+  <text x="100" y="90" fill="#e8eefc" font-family="Segoe UI, sans-serif" font-size="32" font-weight="700">Magazine 1C</text>
+</svg>

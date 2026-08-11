@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10182a"/>
+      <stop offset="1" stop-color="#1c2740"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <circle cx="620" cy="120" r="140" fill="#5ec8ff" fill-opacity="0.18"/>
+  <circle cx="180" cy="380" r="160" fill="#7a6cff" fill-opacity="0.16"/>
+  <rect x="120" y="140" width="220" height="280" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.15"/>
+  <rect x="370" y="140" width="310" height="70" rx="14" fill="#5ec8ff" fill-opacity="0.2"/>
+  <rect x="370" y="230" width="310" height="190" rx="14" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="400" y="80" fill="#e8eefc" font-family="Segoe UI, sans-serif" font-size="36" font-weight="700">GAMEHUB</text>
+</svg>

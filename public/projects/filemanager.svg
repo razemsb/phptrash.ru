@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0d1520"/>
+      <stop offset="1" stop-color="#17304a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <rect x="100" y="110" width="600" height="300" rx="20" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.14"/>
+  <rect x="130" y="140" width="160" height="240" rx="12" fill="#5ec8ff" fill-opacity="0.12"/>
+  <rect x="310" y="140" width="360" height="48" rx="10" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="310" y="208" width="360" height="48" rx="10" fill="#ffffff" fill-opacity="0.06"/>
+  <rect x="310" y="276" width="360" height="48" rx="10" fill="#ffffff" fill-opacity="0.06"/>
+  <text x="120" y="80" fill="#e8eefc" font-family="Segoe UI, sans-serif" font-size="34" font-weight="700">FileManager</text>
+</svg>
