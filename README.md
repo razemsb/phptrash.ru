@@ -30,3 +30,8 @@ npm run build
 3. Stack — стеклянные карточки технологий
 4. Projects — сетка 2×2 + модалка
 5. Contacts — «капля» с соцсетями
+
+## Deploy
+
+CI/CD: push � `main` > build > FTP /www/phptrash.ru/.
+
