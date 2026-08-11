@@ -22,6 +22,14 @@ import { contacts } from '@/data/contacts'
           <FontAwesomeIcon :icon="item.icon" />
           <span>{{ item.label }}</span>
         </a>
+        <a
+          href="https://projects.phptrash.ru"
+          class="link glass"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Projects Hub</span>
+        </a>
       </div>
 
       <p class="mail">maxim1xxx363@gmail.com</p>
@@ -67,7 +75,13 @@ import { contacts } from '@/data/contacts'
 
 @media (min-width: 680px) {
   .links {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .links {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 </style>

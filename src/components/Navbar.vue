@@ -13,6 +13,8 @@ const links = [
   { href: '#contacts', label: 'Contacts' },
 ]
 
+const hubUrl = 'https://projects.phptrash.ru'
+
 const onScroll = () => {
   scrolled.value = window.scrollY > 8
 }
@@ -49,6 +51,14 @@ onUnmounted(() => {
         >
           {{ link.label }}
         </a>
+        <a
+          :href="hubUrl"
+          class="link hub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Hub
+        </a>
       </nav>
 
       <div class="actions">
@@ -74,6 +84,15 @@ onUnmounted(() => {
         @click="open = false"
       >
         {{ link.label }}
+      </a>
+      <a
+        :href="hubUrl"
+        class="mobile-link hub"
+        target="_blank"
+        rel="noopener noreferrer"
+        @click="open = false"
+      >
+        Hub
       </a>
     </div>
   </header>
@@ -153,6 +172,10 @@ onUnmounted(() => {
   background: color-mix(in oklab, white 8%, transparent);
 }
 
+.link.hub {
+  color: var(--accent);
+}
+
 .actions {
   display: flex;
   align-items: center;
@@ -196,6 +219,10 @@ onUnmounted(() => {
 
 .mobile-link:hover {
   background: color-mix(in oklab, white 8%, transparent);
+}
+
+.mobile-link.hub {
+  color: var(--accent);
 }
 
 @media (min-width: 820px) {

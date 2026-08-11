@@ -12,7 +12,12 @@ defineEmits<{
     <section id="projects" class="section page" aria-labelledby="projects-title">
     <p class="kicker">03 — Projects</p>
     <h2 id="projects-title" class="section-title">Проекты</h2>
-    <p class="lead">Четыре работы — клик открывает подробности.</p>
+    <p class="lead">
+      Четыре работы — клик открывает подробности. Живые демо также на
+      <a href="https://projects.phptrash.ru" class="hub-link" target="_blank" rel="noopener noreferrer"
+        >projects.phptrash.ru</a
+      >.
+    </p>
 
     <div class="grid">
       <button
@@ -50,6 +55,12 @@ defineEmits<{
 .section {
   position: relative;
   z-index: 1;
+}
+
+.hub-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .grid {
