@@ -99,18 +99,17 @@ onUnmounted(() => {
   min-height: 3.5rem;
   padding: 0.45rem 0.7rem 0.45rem 1rem;
   border-radius: 999px;
-  /* solid-ish fallback if backdrop-filter fails */
-  background: rgba(8, 14, 28, 0.72);
+  background: rgba(10, 16, 32, 0.38);
   backdrop-filter: blur(18px) saturate(1.35);
   -webkit-backdrop-filter: blur(18px) saturate(1.35);
   border: 1px solid var(--glass-border);
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.35),
+    0 10px 40px rgba(0, 0, 0, 0.28),
     inset 0 1px 0 var(--glass-shine);
 }
 
 .nav.is-scrolled {
-  background: rgba(8, 14, 28, 0.86);
+  background: rgba(10, 16, 32, 0.52);
 }
 
 .brand {
@@ -183,7 +182,7 @@ onUnmounted(() => {
   border-radius: 1.25rem;
   display: grid;
   gap: 0.2rem;
-  background: rgba(8, 14, 28, 0.86);
+  background: rgba(10, 16, 32, 0.55);
   backdrop-filter: blur(18px) saturate(1.35);
   -webkit-backdrop-filter: blur(18px) saturate(1.35);
   border: 1px solid var(--glass-border);
