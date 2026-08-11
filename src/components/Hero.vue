@@ -144,7 +144,7 @@ li::before {
   border-radius: 999px;
   font-size: 0.75rem;
   border: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 819px) {

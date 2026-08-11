@@ -46,7 +46,7 @@
   border-radius: 0.95rem;
   font-weight: 600;
   border: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.08);
   transition: transform 0.2s ease;
 }
 

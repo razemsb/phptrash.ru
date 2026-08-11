@@ -28,7 +28,7 @@ onUnmounted(() => {
   <header ref="rootRef" class="nav-wrap">
     <div class="nav" :class="{ 'is-scrolled': scrolled }">
       <a href="#top" class="brand" @click="open = false">
-        <img src="/logo.svg" alt="" width="32" height="32" class="brand-mark" />
+        <img src="/favicon.svg" alt="" width="32" height="32" class="brand-mark" />
         <span>projects</span>
       </a>
 
@@ -84,17 +84,33 @@ onUnmounted(() => {
   min-height: 3.25rem;
   padding: 0.4rem 0.55rem 0.4rem 0.85rem;
   border-radius: 999px;
-  background: rgba(10, 16, 32, 0.45);
-  backdrop-filter: blur(18px) saturate(1.35);
-  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  background: linear-gradient(165deg, rgba(28, 40, 68, 0.94), rgba(8, 14, 28, 0.9));
   border: 1px solid var(--glass-border);
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.28),
+    0 10px 40px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 var(--glass-shine);
 }
 
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  @media (hover: hover) and (pointer: fine) {
+    .nav {
+      background: rgba(10, 16, 32, 0.48);
+      backdrop-filter: blur(18px) saturate(1.35);
+      -webkit-backdrop-filter: blur(18px) saturate(1.35);
+    }
+  }
+}
+
 .nav.is-scrolled {
-  background: rgba(10, 16, 32, 0.58);
+  background: linear-gradient(165deg, rgba(32, 46, 78, 0.96), rgba(10, 16, 32, 0.94));
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  @media (hover: hover) and (pointer: fine) {
+    .nav.is-scrolled {
+      background: rgba(10, 16, 32, 0.62);
+    }
+  }
 }
 
 .brand {
@@ -168,10 +184,11 @@ onUnmounted(() => {
   border-radius: 1.25rem;
   display: grid;
   gap: 0.2rem;
-  background: rgba(10, 16, 32, 0.55);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: linear-gradient(165deg, rgba(28, 40, 68, 0.96), rgba(8, 14, 28, 0.94));
   border: 1px solid var(--glass-border);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 var(--glass-shine);
 }
 
 .mobile-link {

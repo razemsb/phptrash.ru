@@ -180,7 +180,7 @@ h3 {
   padding: 0.28rem 0.55rem;
   border-radius: 999px;
   font-size: 0.78rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--glass-border);
 }
 
@@ -202,7 +202,7 @@ h3 {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
