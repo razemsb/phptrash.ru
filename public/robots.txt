@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Host: https://projects.phptrash.ru
+Sitemap: https://projects.phptrash.ru/sitemap.xml
