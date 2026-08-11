@@ -83,7 +83,7 @@ const statusLabel: Record<string, string> = {
 
 .preview {
   position: relative;
-  min-height: 7.5rem;
+  min-height: 6.5rem;
   background:
     radial-gradient(circle at 78% 30%, rgba(77, 226, 255, 0.22), transparent 42%),
     radial-gradient(circle at 20% 80%, rgba(124, 107, 255, 0.18), transparent 45%),
@@ -95,8 +95,8 @@ const statusLabel: Record<string, string> = {
   position: absolute;
   right: 12%;
   top: 18%;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #9af0ff, #4de2ff 45%, #163a78 78%, #020812);
   box-shadow: 0 0 28px rgba(77, 226, 255, 0.28);
@@ -115,40 +115,46 @@ const statusLabel: Record<string, string> = {
 .slug {
   position: absolute;
   left: 1rem;
+  right: 1rem;
   bottom: 0.85rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: rgba(180, 220, 255, 0.7);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .body {
   display: grid;
-  gap: 0.7rem;
-  padding: 1.15rem 1.2rem 1.25rem;
+  gap: 0.65rem;
+  padding: 1rem 1.05rem 1.15rem;
 }
 
 .head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 h3 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: 0.01em;
+  line-height: 1.25;
 }
 
 .badge {
-  padding: 0.28rem 0.6rem;
+  padding: 0.28rem 0.55rem;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border: 1px solid var(--glass-border);
   color: var(--muted);
   flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
 .badge[data-status='live'] {
@@ -203,6 +209,29 @@ h3 {
 @media (min-width: 820px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .preview {
+    min-height: 7.5rem;
+  }
+
+  .body {
+    padding: 1.15rem 1.2rem 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .card:active {
+    border-color: color-mix(in oklab, var(--accent) 40%, var(--glass-border));
   }
 }
 

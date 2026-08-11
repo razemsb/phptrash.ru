@@ -61,11 +61,11 @@
 
 .watermark {
   position: absolute;
-  top: 18%;
+  top: 16%;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  font-size: clamp(4rem, 18vw, 12rem);
+  font-size: clamp(3.2rem, 16vw, 12rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   color: transparent;
@@ -74,6 +74,8 @@
   background-clip: text;
   white-space: nowrap;
   user-select: none;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 @keyframes drift {
@@ -88,7 +90,18 @@
 
 @media (max-width: 820px) {
   .nebula {
-    filter: blur(55px);
+    filter: blur(48px);
+  }
+
+  .n3 {
+    display: none;
+  }
+
+  .watermark {
+    top: 12%;
+    font-size: clamp(2.4rem, 14vw, 3.6rem);
+    letter-spacing: 0.04em;
+    opacity: 0.7;
   }
 }
 

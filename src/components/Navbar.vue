@@ -68,11 +68,11 @@ onUnmounted(() => {
 <style scoped>
 .nav-wrap {
   position: fixed;
-  top: 0.85rem;
+  top: 0.7rem;
   left: 0;
   right: 0;
   z-index: 60;
-  width: min(1100px, calc(100% - 1.25rem));
+  width: min(1100px, calc(100% - 1rem));
   margin-inline: auto;
 }
 
@@ -80,11 +80,11 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: 3.5rem;
-  padding: 0.45rem 0.7rem 0.45rem 1rem;
+  gap: 0.65rem;
+  min-height: 3.25rem;
+  padding: 0.4rem 0.55rem 0.4rem 0.85rem;
   border-radius: 999px;
-  background: rgba(10, 16, 32, 0.38);
+  background: rgba(10, 16, 32, 0.45);
   backdrop-filter: blur(18px) saturate(1.35);
   -webkit-backdrop-filter: blur(18px) saturate(1.35);
   border: 1px solid var(--glass-border);
@@ -94,24 +94,32 @@ onUnmounted(() => {
 }
 
 .nav.is-scrolled {
-  background: rgba(10, 16, 32, 0.52);
+  background: rgba(10, 16, 32, 0.58);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
+  min-width: 0;
   font-family: var(--font-display);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
+.brand span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .brand-mark {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.55rem;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
 }
 
 .links {
@@ -173,6 +181,27 @@ onUnmounted(() => {
 }
 
 @media (min-width: 820px) {
+  .nav-wrap {
+    top: 0.85rem;
+    width: min(1100px, calc(100% - 1.25rem));
+  }
+
+  .nav {
+    min-height: 3.5rem;
+    padding: 0.45rem 0.7rem 0.45rem 1rem;
+    gap: 1rem;
+  }
+
+  .brand {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-mark {
+    width: 2rem;
+    height: 2rem;
+  }
+
   .links {
     display: flex;
   }

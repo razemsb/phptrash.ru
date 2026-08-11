@@ -35,9 +35,9 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 1.5rem;
-  padding-top: clamp(6.5rem, 14vw, 8.5rem);
-  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+  gap: 1.15rem;
+  padding-top: clamp(5.6rem, 18vw, 8.5rem);
+  padding-bottom: clamp(1.4rem, 4vw, 3.5rem);
   align-items: end;
 }
 
@@ -65,14 +65,20 @@
   background: radial-gradient(circle, rgba(124, 107, 255, 0.16), transparent 70%);
 }
 
+.kicker {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
 h1 {
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  font-size: clamp(2rem, 11vw, 4.4rem);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  line-height: 1.02;
+  line-height: 1.05;
   background: linear-gradient(180deg, #f2f8ff 8%, var(--accent) 92%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -83,17 +89,17 @@ h1 {
   margin: 0;
   max-width: 34rem;
   color: var(--muted);
-  font-size: clamp(1rem, 2.2vw, 1.15rem);
-  line-height: 1.65;
+  font-size: clamp(0.95rem, 3.6vw, 1.15rem);
+  line-height: 1.6;
 }
 
 .hero-card {
-  padding: 1.15rem 1.2rem 1.25rem;
-  border-radius: 1.35rem;
+  padding: 1rem 1.05rem 1.1rem;
+  border-radius: 1.2rem;
 }
 
 .card-label {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.65rem;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -101,18 +107,18 @@ h1 {
 }
 
 ul {
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
 li {
   position: relative;
   padding-left: 0.85rem;
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.4;
 }
 
@@ -130,21 +136,40 @@ li::before {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .tags span {
-  padding: 0.3rem 0.6rem;
+  padding: 0.28rem 0.55rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   border: 1px solid var(--glass-border);
   background: rgba(255, 255, 255, 0.04);
+}
+
+@media (max-width: 819px) {
+  .glow.b {
+    display: none;
+  }
+
+  .glow.a {
+    width: min(70vw, 260px);
+    height: min(70vw, 260px);
+    top: 0;
+    right: -18%;
+    opacity: 0.85;
+  }
 }
 
 @media (min-width: 900px) {
   .hero {
     grid-template-columns: 1.35fr 0.75fr;
     gap: 2rem;
+  }
+
+  .hero-card {
+    padding: 1.15rem 1.2rem 1.25rem;
+    border-radius: 1.35rem;
   }
 }
 </style>
