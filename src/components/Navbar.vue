@@ -31,8 +31,13 @@ onUnmounted(() => {
     <div class="nav glass" :class="{ 'is-scrolled': scrolled }">
       <a href="#top" class="brand" @click="open = false">phptrash</a>
 
-      <nav class="links" aria-label="Навигация">
-        <a v-for="link in links" :key="link.href" :href="link.href" class="link">
+      <nav class="links" aria-label="Основная навигация">
+        <a
+          v-for="link in links"
+          :key="link.href"
+          :href="link.href"
+          class="link"
+        >
           {{ link.label }}
         </a>
       </nav>

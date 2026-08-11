@@ -4,10 +4,10 @@ import { contacts } from '@/data/contacts'
 </script>
 
 <template>
-  <footer id="contacts" class="section page">
+  <footer id="contacts" class="section page" aria-labelledby="contacts-title">
     <div class="box glass">
       <p class="kicker">04 — Contacts</p>
-      <h2 class="section-title">Связь</h2>
+      <h2 id="contacts-title" class="section-title">Связь</h2>
       <p class="lead">Пишите в Telegram или на почту — отвечаю без театра.</p>
 
       <div class="links">
@@ -17,7 +17,7 @@ import { contacts } from '@/data/contacts'
           :href="item.href"
           class="link glass"
           :target="item.id === 'email' ? undefined : '_blank'"
-          :rel="item.id === 'email' ? undefined : 'noopener noreferrer'"
+          :rel="item.id === 'email' ? undefined : 'me noopener noreferrer'"
         >
           <FontAwesomeIcon :icon="item.icon" />
           <span>{{ item.label }}</span>

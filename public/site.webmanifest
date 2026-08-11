@@ -1,0 +1,23 @@
+{
+  "name": "phptrash",
+  "short_name": "phptrash",
+  "description": "Fullstack-разработчик PHP, Laravel, Vue — портфолио и контакты.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#010208",
+  "theme_color": "#010208",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

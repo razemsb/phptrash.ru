@@ -4,9 +4,9 @@ import { techs } from '@/data/techs'
 </script>
 
 <template>
-  <section id="stack" class="section page">
+  <section id="stack" class="section page" aria-labelledby="stack-title">
     <p class="kicker">02 — Stack</p>
-    <h2 class="section-title">Стек</h2>
+    <h2 id="stack-title" class="section-title">Стек</h2>
     <p class="lead">Инструменты, которыми пользуюсь каждый день.</p>
 
     <ul class="grid">

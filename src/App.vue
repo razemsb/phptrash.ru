@@ -29,13 +29,13 @@ const closeProject = () => {
 </script>
 
 <template>
-  <div class="shell">
+  <div class="shell" itemscope itemtype="https://schema.org/WebPage">
     <CosmosScroll />
     <BackgroundCanvas />
     <CometsCanvas />
     <Navbar />
 
-    <main>
+    <main id="content" aria-label="Основной контент">
       <Hero />
       <Bio />
       <Stack />

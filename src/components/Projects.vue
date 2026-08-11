@@ -9,9 +9,9 @@ defineEmits<{
 </script>
 
 <template>
-  <section id="projects" class="section page">
+    <section id="projects" class="section page" aria-labelledby="projects-title">
     <p class="kicker">03 — Projects</p>
-    <h2 class="section-title">Проекты</h2>
+    <h2 id="projects-title" class="section-title">Проекты</h2>
     <p class="lead">Четыре работы — клик открывает подробности.</p>
 
     <div class="grid">
@@ -24,9 +24,11 @@ defineEmits<{
       >
         <img
           :src="project.image"
-          :alt="project.title"
+          :alt="`${project.title} — превью проекта`"
           loading="lazy"
           decoding="async"
+          width="800"
+          height="500"
           class="thumb"
         />
         <div class="body">

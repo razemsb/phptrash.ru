@@ -1,12 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section id="top" class="hero page">
+  <section id="top" class="hero page" itemscope itemtype="https://schema.org/Person">
     <div class="hero-main">
-      <h1>phptrash</h1>
-      <p class="role">Fullstack developer</p>
+      <h1 itemprop="name">phptrash</h1>
+      <p class="role" itemprop="jobTitle">Fullstack developer</p>
 
-      <p class="pitch">
+      <p class="pitch" itemprop="description">
         Собираю продукты на PHP/Laravel и Vue: от API и БД до интерфейса, который
         удобно трогать руками.
       </p>

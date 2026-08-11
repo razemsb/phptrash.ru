@@ -20,9 +20,9 @@ const { text } = useTypewriter(phrases, {
 </script>
 
 <template>
-  <section id="bio" class="section page">
+  <section id="bio" class="section page" aria-labelledby="bio-title">
     <p class="kicker">01 — Bio</p>
-    <h2 class="section-title">Коротко</h2>
+    <h2 id="bio-title" class="section-title">Коротко</h2>
     <p class="lead">
       <strong>phptrash</strong>. Fullstack на PHP и Vue — от схемы БД до
       кликабельного UI.
