@@ -1,8 +1,8 @@
-name: Deploy
+name: Deploy Hub
 
 on:
   push:
-    branches: [main]
+    branches: [projects]
   workflow_dispatch:
 
 concurrency:

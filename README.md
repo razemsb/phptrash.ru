@@ -3,7 +3,9 @@
 Хаб проектов phptrash — описание и список демо.
 
 Сайт: [projects.phptrash.ru](https://projects.phptrash.ru)  
-Визитка: [phptrash.ru](https://www.phptrash.ru)
+Визитка: [www.phptrash.ru](https://www.phptrash.ru)
+
+Ветка `projects` в репо [razemsb/phptrash.ru](https://github.com/razemsb/phptrash.ru) → FTP `/www/projects.phptrash.ru/`.
 
 ## Локально
 
