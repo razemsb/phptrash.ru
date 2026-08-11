@@ -24,12 +24,12 @@ import Footer from '@/components/Footer.vue'
 .shell {
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
-  background: linear-gradient(180deg, var(--bg), var(--bg-2) 50%, #000 100%);
+  isolation: isolate;
+  overflow-x: clip;
+  background: transparent;
 }
 
 main {
   position: relative;
-  z-index: 1;
 }
 </style>

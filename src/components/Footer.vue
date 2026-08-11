@@ -22,7 +22,6 @@
 <style scoped>
 .section {
   position: relative;
-  z-index: 1;
   padding-top: 1.5rem;
   padding-bottom: 2.25rem;
 }

@@ -84,33 +84,23 @@ onUnmounted(() => {
   min-height: 3.25rem;
   padding: 0.4rem 0.55rem 0.4rem 0.85rem;
   border-radius: 999px;
-  background: linear-gradient(165deg, rgba(28, 40, 68, 0.94), rgba(8, 14, 28, 0.9));
+  background: linear-gradient(165deg, rgba(36, 52, 88, 0.55), rgba(8, 14, 28, 0.62));
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
   border: 1px solid var(--glass-border);
   box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 var(--glass-shine);
 }
 
-@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-  @media (hover: hover) and (pointer: fine) {
-    .nav {
-      background: rgba(10, 16, 32, 0.48);
-      backdrop-filter: blur(18px) saturate(1.35);
-      -webkit-backdrop-filter: blur(18px) saturate(1.35);
-    }
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .nav {
+    background: linear-gradient(165deg, rgba(28, 40, 68, 0.94), rgba(8, 14, 28, 0.9));
   }
 }
 
 .nav.is-scrolled {
-  background: linear-gradient(165deg, rgba(32, 46, 78, 0.96), rgba(10, 16, 32, 0.94));
-}
-
-@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-  @media (hover: hover) and (pointer: fine) {
-    .nav.is-scrolled {
-      background: rgba(10, 16, 32, 0.62);
-    }
-  }
+  background: linear-gradient(165deg, rgba(40, 58, 96, 0.7), rgba(10, 16, 32, 0.78));
 }
 
 .brand {
@@ -184,7 +174,9 @@ onUnmounted(() => {
   border-radius: 1.25rem;
   display: grid;
   gap: 0.2rem;
-  background: linear-gradient(165deg, rgba(28, 40, 68, 0.96), rgba(8, 14, 28, 0.94));
+  background: linear-gradient(165deg, rgba(36, 52, 88, 0.6), rgba(8, 14, 28, 0.7));
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
   border: 1px solid var(--glass-border);
   box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.35),
