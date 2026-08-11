@@ -245,22 +245,31 @@ const paint = () => {
     '#e8f2fa',
   )
 
-  // polar ice
-  const iceN = ctx.createRadialGradient(cx, cy - r * 0.78, 0, cx, cy - r * 0.55, r * 0.4)
-  iceN.addColorStop(0, 'rgba(255,255,255,0.95)')
-  iceN.addColorStop(1, 'rgba(255,255,255,0)')
-  ctx.fillStyle = iceN
-  ctx.beginPath()
-  ctx.ellipse(cx, cy - r * 0.78, r * 0.55, r * 0.28, 0, 0, Math.PI * 2)
-  ctx.fill()
+  // polar ice — proper sphere caps (chord + rim arc)
+  const drawCap = (south: boolean) => {
+    const edge = south ? 0.52 : -0.52
+    const yChord = cy + edge * r
+    const xHalf = Math.sqrt(Math.max(0, 1 - edge * edge)) * r
+    const aLeft = Math.atan2(yChord - cy, -xHalf)
+    const aRight = Math.atan2(yChord - cy, xHalf)
 
-  const iceS = ctx.createRadialGradient(cx, cy + r * 0.82, 0, cx, cy + r * 0.6, r * 0.38)
-  iceS.addColorStop(0, 'rgba(245,250,255,0.9)')
-  iceS.addColorStop(1, 'rgba(255,255,255,0)')
-  ctx.fillStyle = iceS
-  ctx.beginPath()
-  ctx.ellipse(cx, cy + r * 0.82, r * 0.5, r * 0.26, 0, 0, Math.PI * 2)
-  ctx.fill()
+    const poleY = cy + (south ? 0.78 : -0.78) * r
+    const grad = ctx.createRadialGradient(cx, poleY, 0, cx, cy + edge * r * 0.35, r * 0.55)
+    grad.addColorStop(0, 'rgba(255,255,255,0.96)')
+    grad.addColorStop(0.55, 'rgba(220,235,255,0.75)')
+    grad.addColorStop(1, 'rgba(200,220,245,0.15)')
+    ctx.fillStyle = grad
+
+    ctx.beginPath()
+    ctx.moveTo(cx - xHalf, yChord)
+    // north: ccw through top; south: cw through bottom
+    ctx.arc(cx, cy, r, aLeft, aRight, !south)
+    ctx.closePath()
+    ctx.fill()
+  }
+
+  drawCap(false)
+  drawCap(true)
 
   // soft clouds (lighter — don't hide continents)
   ctx.fillStyle = 'rgba(255,255,255,0.12)'

@@ -217,8 +217,7 @@ const bh = computed(() => {
   transition: none;
 }
 
-.is-mobile .rock .orbit,
-.is-mobile :deep(.orbit) {
+.is-mobile .rock .orbit {
   animation: none;
   will-change: auto;
 }
