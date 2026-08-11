@@ -45,17 +45,7 @@ const paint = () => {
   const cy = size * 0.5
   const r = size * 0.42
 
-  // atmosphere halo
-  const atmos = ctx.createRadialGradient(cx, cy, r * 0.85, cx, cy, r * 1.28)
-  atmos.addColorStop(0, 'rgba(100,180,255,0)')
-  atmos.addColorStop(0.7, 'rgba(90,170,255,0.18)')
-  atmos.addColorStop(1, 'rgba(60,140,255,0)')
-  ctx.fillStyle = atmos
-  ctx.beginPath()
-  ctx.arc(cx, cy, r * 1.28, 0, Math.PI * 2)
-  ctx.fill()
-
-  // clip sphere
+  // clip sphere — no outer atmosphere glow
   ctx.save()
   ctx.beginPath()
   ctx.arc(cx, cy, r, 0, Math.PI * 2)
@@ -298,13 +288,6 @@ const paint = () => {
   ctx.fill()
 
   ctx.restore()
-
-  // thin limb
-  ctx.strokeStyle = 'rgba(160,210,255,0.35)'
-  ctx.lineWidth = Math.max(1.5, size * 0.008)
-  ctx.beginPath()
-  ctx.arc(cx, cy, r - 0.5, 0, Math.PI * 2)
-  ctx.stroke()
 }
 
 onMounted(() => {

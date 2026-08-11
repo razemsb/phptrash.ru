@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 
 const open = ref(false)
 const scrolled = ref(false)
+const rootRef = ref<HTMLElement | null>(null)
 
 const links = [
   { href: '#bio', label: 'Bio' },
@@ -14,6 +16,10 @@ const links = [
 const onScroll = () => {
   scrolled.value = window.scrollY > 8
 }
+
+onClickOutside(rootRef, () => {
+  open.value = false
+})
 
 onMounted(() => {
   onScroll()
@@ -27,7 +33,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header class="nav-wrap">
+  <header ref="rootRef" class="nav-wrap">
     <div class="nav" :class="{ 'is-scrolled': scrolled }">
       <a href="#top" class="brand" @click="open = false">
         <img src="/logo.svg" alt="phptrash" width="32" height="32" class="brand-mark" />
