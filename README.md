@@ -2,7 +2,7 @@
 
 Fullstack-разработчик. Собираю продукты на **PHP / Laravel** и **Vue**: от API и схемы БД до интерфейса, который удобно трогать руками.
 
-Сайт: [phptrash.ru](https://phptrash.ru)
+Сайт: [phptrash.ru](https://www.phptrash.ru)
 
 ## Чем занимаюсь
 

@@ -3,6 +3,10 @@
   RewriteEngine On
   RewriteBase /
 
+  # apex → www
+  RewriteCond %{HTTP_HOST} ^phptrash\.ru$ [NC]
+  RewriteRule ^ https://www.phptrash.ru%{REQUEST_URI} [L,R=301]
+
   # HTTPS (если уже на SSL — раскомментируй при необходимости)
   # RewriteCond %{HTTPS} !=on
   # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
