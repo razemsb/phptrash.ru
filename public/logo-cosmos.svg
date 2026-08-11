@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">phptrash</title>
+  <desc id="desc">Логотип phptrash — P на космических волнах</desc>
+
+  <defs>
+    <clipPath id="frame">
+      <rect width="512" height="512" rx="112" ry="112"/>
+    </clipPath>
+
+    <!-- cooler cosmic sky, still readable like the team mark -->
+    <linearGradient id="sky" x1="256" y1="0" x2="256" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9AA8E8"/>
+      <stop offset="0.5" stop-color="#7B89D4"/>
+      <stop offset="1" stop-color="#5F6EBF"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="72%" cy="22%" r="48%" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#B8F4FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#B8F4FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="wave1" x1="0" y1="300" x2="512" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6A78C8"/>
+      <stop offset="1" stop-color="#5866B6"/>
+    </linearGradient>
+
+    <linearGradient id="wave2" x1="0" y1="340" x2="512" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3F5FB8"/>
+      <stop offset="1" stop-color="#3554A8"/>
+    </linearGradient>
+
+    <linearGradient id="wave3" x1="0" y1="400" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#243E8A"/>
+      <stop offset="1" stop-color="#1A3274"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="512" height="512" fill="url(#sky)"/>
+    <rect width="512" height="512" fill="url(#glow)"/>
+
+    <!-- sparse stars — only upper field -->
+    <g fill="#F2F7FF">
+      <circle cx="64" cy="72" r="2" opacity="0.7"/>
+      <circle cx="118" cy="128" r="1.3" opacity="0.45"/>
+      <circle cx="420" cy="56" r="1.8" opacity="0.65"/>
+      <circle cx="460" cy="118" r="1.2" opacity="0.4"/>
+      <circle cx="340" cy="84" r="1.1" opacity="0.35"/>
+    </g>
+
+    <!-- three clean waves like the team logo -->
+    <path
+      fill="url(#wave1)"
+      d="M0 328
+         C70 300 130 360 200 344
+         C274 326 318 286 390 304
+         C446 318 484 348 512 334
+         V512 H0 Z"
+    />
+    <path
+      fill="url(#wave2)"
+      d="M0 368
+         C66 340 128 396 198 378
+         C272 358 322 324 392 342
+         C448 356 484 392 512 376
+         V512 H0 Z"
+    />
+    <path
+      fill="url(#wave3)"
+      d="M0 416
+         C60 386 120 438 192 420
+         C268 400 320 370 390 388
+         C448 402 484 438 512 422
+         V512 H0 Z"
+    />
+
+    <!-- tiny planet accent -->
+    <circle cx="438" cy="168" r="9" fill="#D7F8FF"/>
+    <circle cx="438" cy="168" r="9" fill="#4DE2FF" fill-opacity="0.22"/>
+    <circle cx="441" cy="165" r="2.5" fill="#FFFFFF" opacity="0.75"/>
+
+    <!--
+      Clean bold P — sharp like the team E, uniform stem, round bowl.
+    -->
+    <path
+      fill="#FFFFFF"
+      fill-rule="evenodd"
+      d="
+        M170 98
+        H258
+        C356 98 422 158 422 230
+        C422 302 356 362 258 362
+        V414
+        H170
+        V98
+        Z
+
+        M258 168
+        V292
+        H264
+        C316 292 350 268 350 230
+        C350 192 316 168 264 168
+        H258
+        Z
+      "
+    />
+  </g>
+</svg>

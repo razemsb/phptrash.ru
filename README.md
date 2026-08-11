@@ -1,37 +1,29 @@
-# Liquid Glass Portfolio
+# phptrash
 
-SPA-портфолио **phptrash** на Vue 3 + TypeScript + Vite + Tailwind CSS.
+Fullstack-разработчик. Собираю продукты на **PHP / Laravel** и **Vue**: от API и схемы БД до интерфейса, который удобно трогать руками.
+
+Сайт: [phptrash.ru](https://phptrash.ru)
+
+## Чем занимаюсь
+
+- backend на Laravel
+- SPA и админки на Vue 3
+- чистая вёрстка под прод
+- сервисы, которые не разваливаются после деплоя
 
 ## Стек
 
-- Vue 3 Composition API (`script setup`)
-- TypeScript
-- Tailwind CSS v4
-- `@vueuse/motion` + кастомный `v-mouse-parallax`
-- Font Awesome
+PHP 8 · Laravel · Vue 3 · JavaScript · Tailwind CSS · REST API
 
-## Запуск
+## Контакты
 
-```bash
-npm install
-npm run dev
-```
+- Telegram: [@phptrash](https://t.me/phptrash)
+- GitHub: [@razemsb](https://github.com/razemsb)
+- Email: [maxim1xxx363@gmail.com](mailto:maxim1xxx363@gmail.com)
 
-Сборка:
+## Проекты
 
-```bash
-npm run build
-```
-
-## Секции
-
-1. Hero — имя, статус Available for work, переключение темы
-2. Bio — typewriter
-3. Stack — стеклянные карточки технологий
-4. Projects — сетка 2×2 + модалка
-5. Contacts — «капля» с соцсетями
-
-## Deploy
-
-CI/CD: push � `main` > build > FTP /www/phptrash.ru/.
-
+- [DevGuide](https://dev-guide.ru) — справочник для разработчиков
+- [GAMEHUB](https://github.com/razemsb/gamehub) — витрина цифровых ключей
+- [FileManager](https://github.com/razemsb/FileManager) — файловый менеджер под локальный стек
+- [ImageConvertor](https://github.com/razemsb/ImageConvertor) — конвертация в WebP/AVIF

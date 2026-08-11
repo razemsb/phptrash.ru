@@ -29,7 +29,10 @@ onUnmounted(() => {
 <template>
   <header class="nav-wrap">
     <div class="nav glass" :class="{ 'is-scrolled': scrolled }">
-      <a href="#top" class="brand" @click="open = false">phptrash</a>
+      <a href="#top" class="brand" @click="open = false">
+        <img src="/logo.svg" alt="phptrash" width="32" height="32" class="brand-mark" />
+        <span>phptrash</span>
+      </a>
 
       <nav class="links" aria-label="Основная навигация">
         <a
@@ -95,11 +98,22 @@ onUnmounted(() => {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--font-display);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.brand-mark {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.55rem;
+  flex-shrink: 0;
 }
 
 .links {
