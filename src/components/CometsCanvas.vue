@@ -30,7 +30,6 @@ interface Comet {
 let raf = 0
 let w = 0
 let h = 0
-let dpr = 1
 let scrollP = 0
 let last = 0
 let scrolling = false
@@ -72,7 +71,6 @@ watch(smooth, (v) => {
 const lockSize = () => {
   const canvas = canvasRef.value
   if (!canvas) return
-  dpr = 1
   // layout-ish size; do NOT follow visualViewport chrome toggles on mobile
   w = Math.max(1, Math.floor(window.innerWidth))
   h = Math.max(1, Math.floor(window.innerHeight))
