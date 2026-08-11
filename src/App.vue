@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import StarsCanvas from '@/components/StarsCanvas.vue'
+import CosmosLayer from '@/components/CosmosLayer.vue'
 import Navbar from '@/components/Navbar.vue'
 import Hero from '@/components/Hero.vue'
 import ProjectsGrid from '@/components/ProjectsGrid.vue'
@@ -8,6 +9,7 @@ import Footer from '@/components/Footer.vue'
 
 <template>
   <div class="shell">
+    <CosmosLayer />
     <StarsCanvas />
     <Navbar />
     <main>
@@ -22,6 +24,8 @@ import Footer from '@/components/Footer.vue'
 .shell {
   position: relative;
   min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, var(--bg), var(--bg-2) 50%, #000 100%);
 }
 
 main {

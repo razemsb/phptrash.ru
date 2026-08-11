@@ -7,35 +7,42 @@ let w = 0
 let h = 0
 let stars: { x: number; y: number; z: number; s: number }[] = []
 let t = 0
+let last = 0
 
 const spawn = () => {
-  const count = Math.min(120, Math.floor((w * h) / 14000))
+  const count = Math.min(140, Math.floor((w * h) / 12000))
   stars = Array.from({ length: count }, () => ({
     x: Math.random() * w,
     y: Math.random() * h,
     z: Math.random(),
-    s: Math.random() * 1.2 + 0.3,
+    s: Math.random() * 1.25 + 0.25,
   }))
 }
 
 const resize = () => {
   const canvas = canvasRef.value
   if (!canvas) return
-  w = Math.floor(window.innerWidth)
-  h = Math.floor(window.innerHeight)
+  w = Math.max(1, Math.floor(window.innerWidth))
+  h = Math.max(1, Math.floor(window.innerHeight))
   canvas.width = w
   canvas.height = h
   spawn()
 }
 
-const draw = () => {
+const draw = (now: number) => {
   const ctx = canvasRef.value?.getContext('2d')
   if (!ctx) return
-  t += 0.004
+  if (now - last < 33) {
+    raf = requestAnimationFrame(draw)
+    return
+  }
+  last = now
+  t += 0.0035
   ctx.clearRect(0, 0, w, h)
   for (const star of stars) {
-    const y = (star.y + t * (12 + star.z * 28)) % (h + 10)
-    ctx.fillStyle = `rgba(220,235,255,${0.2 + star.z * 0.55})`
+    const y = (star.y + t * (10 + star.z * 30)) % (h + 12)
+    const alpha = 0.18 + star.z * 0.6
+    ctx.fillStyle = `rgba(220,235,255,${alpha})`
     ctx.fillRect(star.x, y, star.s, star.s)
   }
   raf = requestAnimationFrame(draw)
@@ -60,9 +67,12 @@ onUnmounted(() => {
 <style scoped>
 .stars {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 </style>
