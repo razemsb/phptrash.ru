@@ -28,7 +28,7 @@ onUnmounted(() => {
 
 <template>
   <header class="nav-wrap">
-    <div class="nav glass" :class="{ 'is-scrolled': scrolled }">
+    <div class="nav" :class="{ 'is-scrolled': scrolled }">
       <a href="#top" class="brand" @click="open = false">
         <img src="/logo.svg" alt="phptrash" width="32" height="32" class="brand-mark" />
         <span>phptrash</span>
@@ -59,7 +59,7 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <div v-show="open" class="mobile glass">
+    <div v-show="open" class="mobile">
       <a
         v-for="link in links"
         :key="`m-${link.href}`"
@@ -77,10 +77,12 @@ onUnmounted(() => {
 .nav-wrap {
   position: fixed;
   top: 0.85rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  /* no transform here — it kills backdrop-filter on many prod browsers */
   z-index: 60;
   width: min(1100px, calc(100% - 1.25rem));
+  margin-inline: auto;
 }
 
 .nav {
@@ -91,10 +93,18 @@ onUnmounted(() => {
   min-height: 3.5rem;
   padding: 0.45rem 0.7rem 0.45rem 1rem;
   border-radius: 999px;
+  /* solid-ish fallback if backdrop-filter fails */
+  background: rgba(8, 14, 28, 0.72);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 var(--glass-shine);
 }
 
 .nav.is-scrolled {
-  background: var(--glass-strong);
+  background: rgba(8, 14, 28, 0.86);
 }
 
 .brand {
@@ -167,6 +177,10 @@ onUnmounted(() => {
   border-radius: 1.25rem;
   display: grid;
   gap: 0.2rem;
+  background: rgba(8, 14, 28, 0.86);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  border: 1px solid var(--glass-border);
 }
 
 .mobile-link {
