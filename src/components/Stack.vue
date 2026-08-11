@@ -23,7 +23,6 @@ import { techs } from '@/data/techs'
 <style scoped>
 .section {
   position: relative;
-  z-index: 1;
 }
 
 .grid {

@@ -171,7 +171,7 @@ const bh = computed(() => {
   right: 0;
   /* always svh — mobile URL bar must not reflow planet % positions */
   height: 100svh;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
   overflow: hidden;
 }

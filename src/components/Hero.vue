@@ -36,7 +36,6 @@
 <style scoped>
 .hero {
   position: relative;
-  z-index: 1;
   display: grid;
   gap: 1.5rem;
   padding-top: clamp(5.5rem, 12vw, 7.5rem);

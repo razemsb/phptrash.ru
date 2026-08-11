@@ -40,7 +40,6 @@ import { contacts } from '@/data/contacts'
 <style scoped>
 .section {
   position: relative;
-  z-index: 1;
   padding-bottom: 3rem;
 }
 

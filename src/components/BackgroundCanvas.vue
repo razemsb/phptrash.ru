@@ -147,7 +147,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100svh;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   opacity: 0.8;
 }

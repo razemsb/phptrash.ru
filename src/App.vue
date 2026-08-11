@@ -51,12 +51,14 @@ const closeProject = () => {
 .shell {
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
-  background: linear-gradient(180deg, var(--bg), var(--bg-2) 50%, #000 100%);
+  /* isolate: one backdrop root so glass can blur fixed cosmos layers */
+  isolation: isolate;
+  /* clip instead of hidden — overflow:hidden breaks backdrop-filter in Chromium */
+  overflow-x: clip;
+  background: transparent;
 }
 
 main {
   position: relative;
-  z-index: 2;
 }
 </style>

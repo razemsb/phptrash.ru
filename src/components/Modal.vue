@@ -78,17 +78,9 @@ onKeyStroke('Escape', () => {
 .backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(3, 6, 14, 0.82);
-}
-
-@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-  @media (hover: hover) and (pointer: fine) {
-    .backdrop {
-      background: rgba(3, 6, 14, 0.62);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-  }
+  background: rgba(3, 6, 14, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .panel {
