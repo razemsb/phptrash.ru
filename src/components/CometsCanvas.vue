@@ -106,6 +106,8 @@ const tick = (now: number) => {
   ctx.clearRect(0, 0, w, h)
 
   for (const c of comets) {
+    // hide streaks near black hole / deep scroll
+    if (scrollP > 0.42) continue
     // one comet only on phones
     if (mobile.value && c.unlock > 0.3) continue
     if (low.value && !mobile.value && c.unlock > 0.4) continue
@@ -213,7 +215,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100svh;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
 }
 </style>

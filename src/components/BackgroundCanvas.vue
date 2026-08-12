@@ -76,33 +76,12 @@ const draw = (now: number) => {
   t += 0.003 + scrollP * 0.008
   ctx.clearRect(0, 0, w, h)
 
-  const cx = w * 0.5
-  const cy = h * 0.58
-  const warp = scrollP > 0.55 ? (scrollP - 0.55) / 0.45 : 0
   const dens = 0.45 + scrollP * 0.55
 
   for (const star of stars) {
-    const speed = (0.2 + star.z) * (1 + scrollP * 2.2)
-    let x = star.x
-    let y = (star.y + t * speed * 36) % (h + 20)
-
-    if (warp > 0.05) {
-      const dx = x - cx
-      const dy = y - cy
-      const dist = Math.hypot(dx, dy) || 1
-      const pull = 1 + Math.min(0.7, 140 / dist) * warp * 0.6
-      x = cx + dx * pull
-      y = cy + dy * pull
-      if (!low.value) {
-        const len = (2 + star.z * 8) * warp
-        ctx.beginPath()
-        ctx.moveTo(x, y)
-        ctx.lineTo(x - (dx / dist) * len, y - (dy / dist) * len)
-        ctx.strokeStyle = `rgba(200, 230, 255, ${0.12 + warp * 0.3 * star.z})`
-        ctx.lineWidth = 1
-        ctx.stroke()
-      }
-    }
+    const speed = (0.2 + star.z) * (1 + scrollP * 1.4)
+    const x = star.x
+    const y = (star.y + t * speed * 36) % (h + 20)
 
     const alpha = (0.25 + star.z * 0.55) * dens
     ctx.fillStyle = `rgba(230, 240, 255, ${alpha})`
@@ -147,7 +126,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100svh;
-  z-index: -1;
+  z-index: -3;
   pointer-events: none;
   opacity: 0.8;
 }

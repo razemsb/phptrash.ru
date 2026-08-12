@@ -63,6 +63,8 @@ defineEmits<{
 <style scoped>
 .section {
   position: relative;
+  padding-bottom: 0;
+  isolation: isolate;
 }
 
 .intro {

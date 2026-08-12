@@ -2,12 +2,12 @@
 import { ref } from 'vue'
 import BackgroundCanvas from '@/components/BackgroundCanvas.vue'
 import CosmosScroll from '@/components/CosmosScroll.vue'
-import CometsCanvas from '@/components/CometsCanvas.vue'
 import Navbar from '@/components/Navbar.vue'
 import Hero from '@/components/Hero.vue'
 import Bio from '@/components/Bio.vue'
 import Stack from '@/components/Stack.vue'
 import Projects from '@/components/Projects.vue'
+import CosmosGap from '@/components/CosmosGap.vue'
 import Contacts from '@/components/Contacts.vue'
 import Modal from '@/components/Modal.vue'
 import { useSmoothScroll } from '@/composables/useSmoothScroll'
@@ -32,7 +32,6 @@ const closeProject = () => {
   <div class="shell" itemscope itemtype="https://schema.org/WebPage">
     <CosmosScroll />
     <BackgroundCanvas />
-    <CometsCanvas />
     <Navbar />
 
     <main id="content" aria-label="Основной контент">
@@ -40,6 +39,7 @@ const closeProject = () => {
       <Bio />
       <Stack />
       <Projects @open="openProject" />
+      <CosmosGap />
       <Contacts />
     </main>
 
@@ -58,7 +58,21 @@ const closeProject = () => {
   background: transparent;
 }
 
+/*
+  Background stack (bottom → top):
+  stars z-index -3, cosmos (planets + BH) -1, main content auto
+*/
+
 main {
   position: relative;
+}
+
+:global(#top),
+:global(#bio),
+:global(#stack),
+:global(#projects),
+:global(#contacts) {
+  position: relative;
+  z-index: 1;
 }
 </style>

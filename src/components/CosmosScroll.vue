@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import { useScrollProgress } from '@/composables/useScrollProgress'
 import { usePerfMode } from '@/composables/usePerfMode'
-import BlackHole from '@/components/BlackHole.vue'
 import RingedPlanet from '@/components/RingedPlanet.vue'
 import EarthPlanet from '@/components/EarthPlanet.vue'
 
@@ -86,17 +85,6 @@ const saturn = computed(() => {
   }
 })
 
-const bh = computed(() => {
-  const o = stage(0.52, 0.18)
-  if (mobile.value) {
-    return { o, top: 64, scale: 1 }
-  }
-  return {
-    o,
-    top: 64 - Math.max(0, depth.value - 0.52) * 10,
-    scale: 0.9 + depth.value * 0.18,
-  }
-})
 </script>
 
 <template>
@@ -159,7 +147,6 @@ const bh = computed(() => {
       :shift-y="saturn.ty"
     />
 
-    <BlackHole :intensity="bh.o" :top="bh.top" :scale="bh.scale" />
   </div>
 </template>
 
@@ -210,8 +197,7 @@ const bh = computed(() => {
 
 .is-mobile .planet,
 .is-mobile :deep(.earth-wrap),
-.is-mobile :deep(.saturn),
-.is-mobile :deep(.bh) {
+.is-mobile :deep(.saturn) {
   will-change: opacity;
   /* no CSS opacity transition — fights RAF smooth and looks like jumps */
   transition: none;

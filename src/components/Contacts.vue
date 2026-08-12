@@ -8,7 +8,7 @@ import { contacts } from '@/data/contacts'
     <div class="box glass">
       <p class="kicker">04 — Contacts</p>
       <h2 id="contacts-title" class="section-title">Связь</h2>
-      <p class="lead">Пишите в Telegram или на почту — отвечаю без театра.</p>
+      <p class="lead">Пишите в Telegram или на почту.</p>
 
       <div class="links">
         <a
@@ -40,7 +40,9 @@ import { contacts } from '@/data/contacts'
 <style scoped>
 .section {
   position: relative;
+  padding-top: 0;
   padding-bottom: 3rem;
+  isolation: isolate;
 }
 
 .box {
