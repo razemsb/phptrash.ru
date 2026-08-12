@@ -26,7 +26,7 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
-      - name: Prepare deploy package
+      - name: Prepare release archive
         run: |
           mkdir -p deploy
           rsync -a \
@@ -48,14 +48,76 @@ jobs:
             deploy/storage/framework/sessions \
             deploy/storage/framework/views \
             deploy/bootstrap/cache
-          touch deploy/storage/logs/.gitkeep
+          printf '%s\n' \
+            '<IfModule mod_rewrite.c>' \
+            '    RewriteEngine On' \
+            '    RewriteRule ^(.*)$ public/$1 [L]' \
+            '</IfModule>' > deploy/.htaccess
+          touch \
+            deploy/storage/logs/.gitkeep \
+            deploy/storage/framework/cache/data/.gitkeep \
+            deploy/storage/framework/sessions/.gitkeep \
+            deploy/storage/framework/views/.gitkeep \
+            deploy/bootstrap/cache/.gitkeep
+          test -f deploy/artisan
+          test -f deploy/public/index.php
+          test -f deploy/vendor/autoload.php
+          echo "files in package: $(find deploy -type f | wc -l)"
+          tar -C deploy -czf release.tgz .
+          ls -lh release.tgz
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      - name: Upload release via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_HOST }}
+          host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./deploy/
-          server-dir: /www/api.phptrash.ru/
-          dangerous-clean-slate: false
+          port: 22
+          source: release.tgz
+          target: /www/
+          overwrite: true
+          timeout: 120s
+
+      - name: Extract release on server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 22
+          script_stop: true
+          script: |
+            set -e
+            cd ~/www
+            mkdir -p api.phptrash.ru
+            # keep production .env
+            if [ -f api.phptrash.ru/.env ]; then
+              cp api.phptrash.ru/.env /tmp/api.phptrash.ru.env.bak
+            fi
+            mkdir -p api.phptrash.ru_new
+            tar -xzf release.tgz -C api.phptrash.ru_new
+            test -f api.phptrash.ru_new/artisan
+            test -f api.phptrash.ru_new/public/index.php
+            test -f api.phptrash.ru_new/vendor/autoload.php
+            rm -rf api.phptrash.ru_old
+            if [ -d api.phptrash.ru ]; then mv api.phptrash.ru api.phptrash.ru_old; fi
+            mv api.phptrash.ru_new api.phptrash.ru
+            if [ -f /tmp/api.phptrash.ru.env.bak ]; then
+              cp /tmp/api.phptrash.ru.env.bak api.phptrash.ru/.env
+              rm -f /tmp/api.phptrash.ru.env.bak
+            fi
+            mkdir -p \
+              api.phptrash.ru/storage/logs \
+              api.phptrash.ru/storage/framework/cache/data \
+              api.phptrash.ru/storage/framework/sessions \
+              api.phptrash.ru/storage/framework/views \
+              api.phptrash.ru/bootstrap/cache
+            chmod -R u+rwX api.phptrash.ru/storage api.phptrash.ru/bootstrap/cache
+            rm -f release.tgz
+            rm -rf api.phptrash.ru_old
+            cd api.phptrash.ru
+            if [ -f .env ]; then
+              php artisan migrate --force --no-interaction
+              php artisan config:clear
+            fi
+            echo "deployed files: $(find . -type f | wc -l)"
