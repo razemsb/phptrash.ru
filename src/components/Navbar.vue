@@ -38,7 +38,7 @@ onUnmounted(() => {
   <header ref="rootRef" class="nav-wrap">
     <div class="nav" :class="{ 'is-scrolled': scrolled }">
       <a href="#top" class="brand" @click="open = false">
-        <img src="/favicon.svg" alt="phptrash" width="32" height="32" class="brand-mark" />
+        <img src="/logo.svg" alt="phptrash" width="32" height="32" class="brand-mark" />
         <span>phptrash</span>
       </a>
 

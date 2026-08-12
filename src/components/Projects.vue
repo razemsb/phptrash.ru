@@ -22,7 +22,7 @@ defineEmits<{
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src="/favicon.svg" alt="" width="22" height="22" class="hub-logo" />
+        <img src="/logo.svg" alt="" width="22" height="22" class="hub-logo" />
         <span>Projects Hub</span>
         <FontAwesomeIcon :icon="['fas', 'arrow-up-right-from-square']" />
       </a>
